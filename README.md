@@ -13,14 +13,23 @@ repo: https://github.com/timxor/sing_along_karaoke
 
 
 
-### tech stack
+### project structure
 
-directory structure:
+#### frontend
+
+The frontend is accessible on port 3000.
+
 ```
 frontend/
     - TypeScript
     - React
-    
+```
+
+#### backend
+
+The backend is accessible on port 8000.
+
+```
 backend/
     - Python
     - FastAPI
@@ -29,12 +38,38 @@ backend/
 ```
 
 
-### issues
+### build and run the docker containers
 
-``` 
-    - typescript build system
-    - docker file
+build and run the frontend container:
+```
+cd /frontend
+docker build -t my-frontend .
+docker run -d -p 3000:3000 --name frontend-container my-frontend
+```
+
+build and run the backend container:
+```
+cd /backend
+docker build -t my-backend .
+docker run -d -p 8000:8000 --name backend-container my-backend
+```
+
+
+### start docker compose
+
+start docker compose:
+```
+cd sing_along_karaoke/
+docker-compose up
 ```
 
 
 
+
+
+### issues
+
+```
+    - typescript build system
+    - docker file
+```
